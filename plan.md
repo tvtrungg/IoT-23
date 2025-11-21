@@ -13,21 +13,22 @@
 
 - Purpose: To understand the characteristics of IoT-23 (which is very different from CICIDS or NSL-KDD) and discover practical insights into IoT attack behavior.
 
-- 1.1 Label distribution analysis (label & detailed-label)
-- 1.2 Time-based analysis (ts)
-- 1.3 Popular protocols, services, ports
-- 1.4 Top unusual source/destination IPs
-- 1.5 Correlation heatmap & numerical vs categorical
+- 2.1 Label normalization
+- 2.2 Time-based analysis (ts)
+- 2.3 Protocol & Service
+- 2.4 Top destination ports are attacked
+- 2.5 Distribution of numerical features
+- 2.6 Correlation heatmap
+- 2.7. Scatter plot `orig_bytes` vs `resp_bytes`
 
 ## Step 3: Feature Engineering
 
 - Create new features
-
-- 2.1 Time Processing
-- 2.2 Creating Features from History
-- 2.3 Flow-Based Features
-- 2.4 Encoding Categorical Features
-- 2.5 Handling Imbalance
+- 3.1 Time Processing
+- 3.2 Creating Features from History
+- 3.3 Flow-Based Features
+- 3.4 Encoding Categorical Features
+- 3.5 Handling Imbalance
 
 ## Step 4: Model selection & evaluation
 
