@@ -1,13 +1,20 @@
 ## Step 1: Clean the Data
 
-- Remove duplicates, infinite and missing values
-- Handle missing values
+- Split the merged column “tunnel_parents label detailed-label”
+- Remove duplicate --> 0 duplicates found
+- Check and handle infinite/missing values ​​--> No infinite values found / Missing values handled
+- Remove columns with only 1 unique value (local_orig, local_resp, missed_bytes, tunnel_parents)
+- Meaning: Ensure “clean” data to avoid errors when training the model and avoid wasting memory.
 
 ## Step 1.1: Balancing the Dataset
 
-- Begnin > Malicious
+- Begnin (469275) < Malicious (539473)
 
 --> Fix the amount of data in the dataset (Make Beginn larger than Malicious)
+
+--> Decided to convert the problem to Binary Classification (Benign vs Malicious).
+
+- **Signification**: Avoid falling into the "multi-class" trap which is not feasible with the available data --> avoid getting low scores because F1-score of rare classes = 0.
 
 ## Step 2: Exploratory Data Analysis (EDA)
 
@@ -24,11 +31,15 @@
 ## Step 3: Feature Engineering
 
 - Create new features
-- 3.1 Time Processing
-- 3.2 Creating Features from History
-- 3.3 Flow-Based Features
-- 3.4 Encoding Categorical Features
-- 3.5 Handling Imbalance
+- 3.1 Time-based features
+- 3.2 Duration features
+- 3.3 Byte & packet basic features (cast to numeric safely)
+- 3.4 Ratio & per-second features (extremely powerful for scan detection)
+- 3.5 Port features – destination port is the #1 discriminator in this dataset
+- 3.6 Protocol & Service encoding (one-hot + target encoding hybrid)
+- 3.7 Conn_state & History flags
+- 3.8 IP-related features (source IP behavior)
+- 3.9 Final feature list for modeling (drop non-numeric / redundant columns)
 
 ## Step 4: Model selection & evaluation
 
